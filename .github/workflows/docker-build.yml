@@ -1,0 +1,19 @@
+name: DevOps Docker Build
+
+on:
+  push:
+    branches: [main]
+
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download project
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t devops-cloud-app .
